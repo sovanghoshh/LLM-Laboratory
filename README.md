@@ -112,7 +112,7 @@ For a platform-specific PyTorch build, use the [official PyTorch installation se
 ### 2. Launch the notebook...
 
 ```bash
-jupyter lab "LLMs_From_Scratch_to_Advanced_Complete_Guide.ipynb"
+jupyter lab "LLM Engineering Guide.ipynb"
 ```
 
 Run the core cells in order. Optional integrations should remain disabled until their packages, model access, disk/cache space, and other requirements are available. A full run on another computer is not guaranteed to match the audited environment.
