@@ -10,17 +10,16 @@
 
 A visual, hands-on Jupyter course that connects the mathematics of language modeling to a small decoder-only GPT-style model, then explores selected methods used in modern LLM applications. The notebook combines explanations, formulas, diagrams, runnable PyTorch examples, and small local demonstrations.
 
-## What you will learn
+## What you will learn !!
 
 | Learning area | Topics covered |
 |---|---|
 | **Foundations** | AI/ML/DL/NLP/LLM concepts, vectors and matrices, probability, entropy, cross-entropy, gradients, and optimization |
-| **Text and attention** | Character and regex tokenization, toy BPE, embeddings, positional information, a RoPE illustration, Q/K/V, causal masks, multi-head attention, and decoder blocks |
+| **Text & attention** | Character and regex tokenization, toy BPE, embeddings, positional information, a RoPE illustration, Q/K/V, causal masks, multi-head attention, and decoder blocks |
 | **Build a GPT** | Next-character targets, a small PyTorch decoder, loss inspection, gradients, checkpoint saving, attention visualization, and autoregressive sampling |
 | **Modern LLM workflows** | Pretrained-model concepts, prompting, structured-output checks, instruction tuning, response-only loss masking, LoRA, QLoRA concepts, and preference alignment |
-| **Retrieval and systems** | Local TF–IDF retrieval, synthetic retrieval metrics, restricted calculator/document-search tools, inference, evaluation, reliability, and safety |
+| **Retrieval & systems** | Local TF–IDF retrieval, synthetic retrieval metrics, restricted calculator/document-search tools, inference, evaluation, reliability, and safety |
 | **Beyond a text-only Transformer** | Conceptual Transformer/Mamba comparisons, multimodal architecture concepts, and a synthetic image-patch projection example |
-| **Consolidation** | Capstone project workflows, concept maps, formulas, glossary, troubleshooting guidance, and further reading |
 
 ## How the tiny GPT works ?
 
@@ -69,9 +68,9 @@ The notebook intentionally mixes runnable educational code with simplified expla
 
 These are teaching-scale settings, not model-quality metrics. The vocabulary and context length are character-level, not word- or subword-token counts.
 
-## Notebook roadmap
+## Notebook Roadmap
 
-The available notebook is organized into **seven parts and 23 numbered chapters**.
+The available notebook is organized into **six parts and 23 numbered chapters**.
 
 | Part | Chapters | Focus |
 |---|---:|---|
@@ -82,7 +81,7 @@ The available notebook is organized into **seven parts and 23 numbered chapters*
 | V — Retrieval, Agents and Production Systems | 18 – 21 | RAG, tool use, efficient inference, evaluation, reliability, and safety |
 | VI — Architecture Alternatives and Multimodal Models | 22 – 23 | Transformer/Mamba trade-offs and multimodal representations |
 
-## Getting started
+## Getting started...
 
 ### 1. Create and activate an environment
 
@@ -110,7 +109,7 @@ The core `requirements.txt` lists NumPy, Matplotlib, scikit-learn, Pillow, PyTor
 
 For a platform-specific PyTorch build, use the [official PyTorch installation selector](https://pytorch.org/get-started/locally/) rather than copying a universal CPU/CUDA command.
 
-### 2. Launch the notebook
+### 2. Launch the notebook...
 
 ```bash
 jupyter lab "LLMs_From_Scratch_to_Advanced_Complete_Guide.ipynb"
@@ -144,17 +143,3 @@ The validation report records that `tiny_gpt_checkpoint.pt` was inspected using 
 - **Simplified alternatives:** the Transformer/Mamba section compares architectural ideas; it is not a full implementation of the published Mamba architecture.
 - **Synthetic multimodality:** the image example creates a geometric image, splits it into patches, and projects them with a randomly initialized linear layer. It demonstrates data flow, not pretrained visual understanding.
 - **No production claims:** the project is educational. It does not provide broad benchmarks, production monitoring, a deployed service, or a complete large-model fine-tuning and alignment pipeline.
-
-## Repository layout
-
-The intended public repository layout, based on the supplied project assets, is:
-
-```text
-project-root/
-├── LLMs_From_Scratch_to_Advanced_Complete_Guide.ipynb
-├── README.md
-├── requirements.txt
-├── requirements-optional.txt
-├── tiny_gpt_checkpoint.pt
-```
-est.</em></p>
