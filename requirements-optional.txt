@@ -1,0 +1,7 @@
+# Optional: pretrained-model demos (requires model downloads / network access)
+transformers>=4.45,<6
+accelerate>=0.34
+
+# Optional: PEFT / QLoRA experiments; install bitsandbytes only where supported
+peft>=0.13
+# bitsandbytes>=0.43
