@@ -3,32 +3,12 @@
 <p align="center"><em>From language-model foundations to a working educational GPT and practical LLM engineering patterns.</em></p>
 
 <p align="center">
-  <a href="LLMs_From_Scratch_to_Advanced_Complete_Guide.ipynb">Open the notebook</a> ·
-  <a href="Validation%20Report.md">Read the validation report</a>
-</p>
-
-<p align="center">
   <img alt="Python" src="https://img.shields.io/badge/Python-learning%20project-3776AB?logo=python&logoColor=white">
   <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-model%20implementation-EE4C2C?logo=pytorch&logoColor=white">
   <img alt="JupyterLab" src="https://img.shields.io/badge/Jupyter-interactive%20notebook-F37626?logo=jupyter&logoColor=white">
 </p>
 
 A visual, hands-on Jupyter course that connects the mathematics of language modeling to a small decoder-only GPT-style model, then explores selected methods used in modern LLM applications. The notebook combines explanations, formulas, diagrams, runnable PyTorch examples, and small local demonstrations.
-
-> **Scope note — filename:** The project brief refers to `LLM Engineering Guide.ipynb`, but that exact filename was not present in the supplied workspace. The available notebook audited for this project is `LLMs_From_Scratch_to_Advanced_Complete_Guide.ipynb`. Links and commands below use the file that is actually available; no notebook was renamed.
-
-## Quick navigation
-
-- [What you will learn](#what-you-will-learn)
-- [How the tiny GPT works](#how-the-tiny-gpt-works)
-- [Implementation map](#implementation-map)
-- [Notebook roadmap](#notebook-roadmap)
-- [Getting started](#getting-started)
-- [Optional integrations](#optional-integrations)
-- [Saved checkpoint](#saved-checkpoint)
-- [Validation](#validation)
-- [Limitations](#limitations)
-- [References](#references)
 
 ## What you will learn
 
@@ -42,7 +22,7 @@ A visual, hands-on Jupyter course that connects the mathematics of language mode
 | **Beyond a text-only Transformer** | Conceptual Transformer/Mamba comparisons, multimodal architecture concepts, and a synthetic image-patch projection example |
 | **Consolidation** | Capstone project workflows, concept maps, formulas, glossary, troubleshooting guidance, and further reading |
 
-## How the tiny GPT works
+## How the tiny GPT works ?
 
 The core implementation is intentionally small enough to inspect. It starts with a short, lowercased teaching corpus and predicts the next character from preceding characters. The diagram describes the implemented training path rather than a production-scale LLM stack.
 
@@ -63,7 +43,7 @@ flowchart TD
 
 **What to notice:** the causal mask prevents a position from attending to future positions; the targets are shifted by one character; and generation feeds each sampled character back into the model's context. Training and generation are two paths through the same small model. The toy corpus is designed to make the mechanics visible, not to produce useful assistant responses.
 
-## Implementation map
+## Implementation Map
 
 The notebook intentionally mixes runnable educational code with simplified explanations. Treat the depth of each section accordingly.
 
@@ -91,17 +71,16 @@ These are teaching-scale settings, not model-quality metrics. The vocabulary and
 
 ## Notebook roadmap
 
-The available notebook is organized into **seven parts and 26 numbered chapters**.
+The available notebook is organized into **seven parts and 23 numbered chapters**.
 
 | Part | Chapters | Focus |
 |---|---:|---|
-| I — Foundations of AI and Language Modeling | 1–4 | AI/ML/DL/NLP, mathematics, neural-network fundamentals, and text representation |
-| II — From Language Modeling to Transformers | 5–9 | Language modeling, embeddings and positions, attention, Transformer architecture, and decoder-only models |
-| III — Build a Small GPT-Style Model From Scratch | 10–13 | Dataset preparation, PyTorch implementation, training, and text generation |
-| IV — Modern LLMs and Practical Usage | 14–18 | Pretrained models, prompt engineering, instruction tuning, LoRA/QLoRA concepts, and alignment |
-| V — Retrieval, Agents and Production Systems | 19–22 | RAG, tool use, efficient inference, evaluation, reliability, and safety |
-| VI — Architecture Alternatives and Multimodal Models | 23–24 | Transformer/Mamba trade-offs and multimodal representations |
-| VII — Capstone Projects and Further Study | 25–26 | Capstone workflows, knowledge consolidation, glossary, formulas, troubleshooting, and references |
+| I — Foundations of AI and Language Modeling | 01 – 04 | AI/ML/DL/NLP, mathematics, neural-network fundamentals, and text representation |
+| II — From Language Modeling to Transformers | 05 – 09 | Language modeling, embeddings and positions, attention, Transformer architecture, and decoder-only models |
+| III — Build a Small GPT-Style Model From Scratch | 10 – 13 | Dataset preparation, PyTorch implementation, training, and text generation |
+| IV — Modern LLMs and Practical Usage | 14 – 17 | Pretrained models, prompt engineering, instruction tuning, LoRA/QLoRA concepts |
+| V — Retrieval, Agents and Production Systems | 18 – 21 | RAG, tool use, efficient inference, evaluation, reliability, and safety |
+| VI — Architecture Alternatives and Multimodal Models | 22 – 23 | Transformer/Mamba trade-offs and multimodal representations |
 
 ## Getting started
 
@@ -155,13 +134,7 @@ The supplied optional file lists `transformers`, `accelerate`, and `peft`. The p
 
 The validation report records that `tiny_gpt_checkpoint.pt` was inspected using restricted PyTorch loading (`weights_only=True`) and loaded strictly into the notebook's `TinyGPT` class when reconstructed with the matching configuration. The checkpoint contained `model_state_dict`, `vocab`, and `block_size`; the vocabulary contained 29 characters and the block size was 48. This is an educational character-level checkpoint—not a general-purpose pretrained LLM.
 
-**Preserve the supplied file:** the notebook's training cell saves to `tiny_gpt_checkpoint.pt` in the kernel's current working directory and overwrites an existing file with that name. Back it up before running the training cell if you need to retain the supplied checkpoint. See the [validation report](<Validation Report.md>) for the recorded compatibility checks and scope.
-
-## Validation
-
-The linked [Validation Report](<Validation Report.md>) distinguishes fresh execution evidence from optional functionality that was not tested. It records a sequential run of the 55 code cells without cell errors, a passing GPT forward/loss/backpropagation/generation path, and successful restricted loading of the educational checkpoint. A non-fatal Matplotlib layout warning was observed during the run.
-
-Optional pretrained-model downloads, image captioning, end-to-end PEFT/QLoRA training, RLHF/DPO optimization, external-link reachability, and production-serving behavior were not validated. The core smoke test is evidence that the local teaching path runs in the audited environment, not proof of broad quality, portability to every setup, or production readiness.
+**Preserve the supplied file:** the notebook's training cell saves to `tiny_gpt_checkpoint.pt` in the kernel's current working directory and overwrites an existing file with that name. Back it up before running the training cell if you need to retain the supplied checkpoint.
 
 ## Limitations
 
@@ -183,22 +156,5 @@ project-root/
 ├── requirements.txt
 ├── requirements-optional.txt
 ├── tiny_gpt_checkpoint.pt
-└── Validation Report.md
 ```
-
-Keep the local `.venv/` out of version control; it is machine-specific and is not a repository asset. No GitHub remote URL or repository name was supplied, so none is assumed. The inspected assets did not include a `LICENSE` file; the project's license has not been established by these files.
-
-## References
-
-The notebook includes additional recommended reading and official documentation. A few useful starting points are:
-
-- Vaswani et al. (2017), [Attention Is All You Need](https://arxiv.org/abs/1706.03762) — the Transformer architecture.
-- Lewis et al. (2020), [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) — the RAG framework.
-- Hu et al. (2021), [LoRA: Low-Rank Adaptation of Large Language Models](https://arxiv.org/abs/2106.09685) — parameter-efficient adaptation.
-- Gu and Dao (2023), [Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) — selective state-space models.
-- [PyTorch documentation](https://pytorch.org/docs/stable/index.html) — tensors, autograd, modules, and optimization.
-- [Hugging Face Transformers documentation](https://huggingface.co/docs/transformers) and [PEFT documentation](https://huggingface.co/docs/peft) — optional integrations.
-
----
-
-<p align="center"><em>Learn the mechanics. Inspect the evidence. Keep the scope honest.</em></p>
+est.</em></p>
