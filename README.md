@@ -1,12 +1,8 @@
-# LLMs From Scratch to Advanced — Notebook Guide
+# LLM Engineering Guide — Notebook Guide
 
 A visual, hands-on Jupyter course that connects the mathematical foundations of language modeling to a small GPT-style model and a selection of modern LLM engineering patterns. It is intended for learning and experimentation, not as a production LLM framework or a benchmark suite.
 
-**Project files:** [Open the notebook](LLM Engineering Guide.ipynb) · [Read the validation report](<Validation Report.md>)
-
-> **Filename note:** The supplied project brief refers to `LLM Engineering Guide.ipynb`, but that exact file was not present in the inspected workspace. The notebook actually available alongside the dependency files and checkpoint is `LLM Engineering Guide.ipynb`. This README references the available file; no notebook was renamed.
-
-## What is covered
+## What is covered !!
 
 - **Foundations:** AI/ML/DL/NLP/LLM concepts; vectors, matrices, probability, entropy, cross-entropy, gradients and optimization.
 - **Text and Transformer mechanics:** character and regex tokenization, toy byte-pair encoding, embeddings, positional information, RoPE illustration, Q/K/V attention, causal masking, multi-head tensors and decoder blocks.
@@ -18,17 +14,16 @@ A visual, hands-on Jupyter course that connects the mathematical foundations of 
 
 ## Notebook roadmap
 
-The notebook has seven parts and 26 numbered chapters:
+The notebook has six parts and 23 numbered chapters:
 
 | Part | Chapters | Focus |
 |---|---:|---|
 | I — Foundations of AI and Language Modeling | 1–4 | Core concepts, mathematics, neural networks and text representation |
 | II — From Language Modeling to Transformers | 5–9 | Language modeling, positions, attention and Transformer architecture |
 | III — Build a Small GPT-Style Model From Scratch | 10–13 | Data, model implementation, training and generation |
-| IV — Modern LLMs and Practical Usage | 14–18 | Pretrained models, prompting, fine-tuning, LoRA/QLoRA and alignment |
-| V — Retrieval, Agents and Production Systems | 19–22 | RAG, tools, serving, evaluation and safety |
-| VI — Architecture Alternatives and Multimodal Models | 23–24 | Transformer/Mamba trade-offs and multimodal representations |
-| VII — Capstone Projects and Further Study | 25–26 | Project workflows and reference material |
+| IV — Modern LLMs and Practical Usage | 14–17 | Pretrained models, prompting, fine-tuning, LoRA/QLoRA |
+| V — Retrieval, Agents and Production Systems | 18–21 | RAG, tools, serving, evaluation and safety |
+| VI — Architecture Alternatives and Multimodal Models | 22–23 | Transformer/Mamba trade-offs and multimodal representations |
 
 ## Implementations versus demonstrations
 
@@ -88,7 +83,7 @@ The optional file lists `transformers`, `accelerate` and `peft`. The pretrained 
 
 ## Saved GPT checkpoint
 
-The supplied `tiny_gpt_checkpoint.pt` was inspected using restricted PyTorch loading (`weights_only=True`) and successfully loaded with `strict=True` into the notebook's `TinyGPT` class when reconstructed with the matching configuration. Its top-level contents are `model_state_dict`, `vocab` and `block_size`; the vocabulary has 29 characters and the context block size is 48. The checkpoint is a small educational model artifact, **not a pretrained general-purpose LLM**. See the [Validation Report](<Validation Report.md>) for the test details.
+The supplied `tiny_gpt_checkpoint.pt` was inspected using restricted PyTorch loading (`weights_only=True`) and successfully loaded with `strict=True` into the notebook's `TinyGPT` class when reconstructed with the matching configuration. Its top-level contents are `model_state_dict`, `vocab` and `block_size`; the vocabulary has 29 characters and the context block size is 48. The checkpoint is a small educational model artifact, **not a pretrained general-purpose LLM**.
 
 **Important:** the notebook's training cell saves to `tiny_gpt_checkpoint.pt` in the kernel's current working directory and overwrites a same-named file. Back up the existing checkpoint before running that training cell if you want to preserve the supplied artifact.
 
@@ -115,7 +110,3 @@ No GitHub remote URL or repository name was supplied, so none is assumed here. N
 - The RAG demo is local sparse TF–IDF retrieval with a rule-based prompt preview, not a dense-embedding/vector-database stack or a live RAG answer-generation service.
 - PEFT/QLoRA, alignment training, real pretrained vision-language inference and distributed production serving are not freshly executed by the core notebook.
 - The validation report documents what was executed and what remains untested.
-
-## Validation
-
-See [Validation Report.md](<Validation Report.md>) for the audit scope, environment, cell-level execution results, checkpoint assessment, observed warning and limitations.
